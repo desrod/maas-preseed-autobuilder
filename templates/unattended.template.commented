@@ -338,9 +338,6 @@ d-i apt-setup/services-select multiselect
 #tasksel tasksel/first multiselect lamp-server, print-server
 #tasksel tasksel/first multiselect kubuntu-desktop
 
-kdump-tools     kdump-tools/use_kdump   	boolean true
-kexec-tools     kexec-tools/load_kexec  	boolean true
-
 # Individual additional packages to install
 d-i pkgsel/include string openssh-server build-essential $packages
 
