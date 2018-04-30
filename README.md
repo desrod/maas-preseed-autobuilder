@@ -1,8 +1,11 @@
 # maas-preseed-autobuilder
 
-Note: You will need to make sure to mount the ISO and copy its contents into
-./remaster/, so the injection of the preseed files into that ISO image can
-succeed. The easiest way to do that is: 
+
+## Building with a locally-remastered ISO: 
+
+ Note: You will need to make sure to mount the ISO and copy its contents
+ into ./remaster/, so the injection of the preseed files into that ISO image
+ can succeed.  The easiest way to do that is:
 
 ```
 mkdir -p tmp remaster
@@ -20,6 +23,20 @@ Then just run:
 ```./build_maas.sh --iso``` 
 
 This will boot from that ISO image and do the unattended install.
+
+## Building with a local mirror or remote repository over HTTP
+
+ For this to work, you will need to copy your modified/customized
+ preseed.cfg file to the remote webserver, so it can be referenced in the
+ bootstrap.  
+
+ In my case, I have a local Ubuntu mirror sitting at 192.168.1.10, mounted
+ from a NAS.  In the root of that webserver, I've copied my preseed.cfg,
+ which this bootstrap is configured to look for and use.
+
+ You _can_ have the preseed.cfg and the remote mirror of the content on
+ different servers, but I haven't tried that configuration.  YMMV, of
+ course, and patches are welcome!
 
 
 ## Syntax
