@@ -35,8 +35,8 @@ distro_version="18.04"
 arch="amd64"				# Architecture of the ISO or install path
 iso_source="ubuntu-$distro_version-server-$arch.iso"
 
-# mirror_host="192.168.1.10"		# eg: us.archive.ubuntu.com
-mirror_host="us.archive.ubuntu.com"	# eg: us.archive.ubuntu.com
+mirror_host="192.168.1.10"		# eg: us.archive.ubuntu.com
+# mirror_host="us.archive.ubuntu.com"	# eg: us.archive.ubuntu.com
 mirror_path="/ubuntu"			# Where on the MIRROR_HOST is the install path rooted
 
 iso_path="$PWD/"			# Where to create the custom, remastered ISO image to boot from
@@ -289,8 +289,7 @@ while :; do
         	preseed="$preseed_http"
         	push_array extra_args "$preseed"
         	build_options=(--location URL --extra-args "${extra_args[*]}" --location "$location")
-        	printf '%s\n\n' "${build_options[@]}"
-        	exit
+        	# printf '%s\n\n' "${build_options[@]}"
         	build_maas
 		;;
  	-a|--arch)
