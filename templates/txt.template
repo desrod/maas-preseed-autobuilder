@@ -1,0 +1,19 @@
+default install
+label install
+  menu label ^Install Ubuntu Server
+  kernel /install/vmlinuz
+  append   auto=true priority=critical $preseed debian-installer/language=en debian-installer/locale=en_US localechooser/lanuagelist=en kbd-chooser/method=en localechooser/preferred-locale=en_US.UTF-8 console-setup/ask_detect=false netcfg/get_hostname=$node_name netcfg/get_domainname=$node_domain netcfg/disable_dhcp=true netcfg/get_ipaddress=$node_ip netcfg/get_netmask=$node_netmask netcfg/get_gateway=$node_gateway netcfg/get_nameservers=$node_nameserver initrd=/install/initrd.gz --
+label cloud
+  menu label ^Multiple server install with MAAS
+  kernel /install/vmlinuz
+  append   modules=maas-enlist-udeb vga=788 initrd=/install/initrd.gz quiet --
+label check
+  menu label ^Check disc for defects
+  kernel /install/vmlinuz
+  append   MENU=/bin/cdrom-checker-menu vga=788 initrd=/install/initrd.gz quiet --
+label memtest
+  menu label Test ^memory
+  kernel /install/mt86plus
+label hd
+  menu label ^Boot from first hard disk
+  localboot 0x80
