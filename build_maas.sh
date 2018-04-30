@@ -82,7 +82,7 @@ preseed_local="preseed/file=/tmp/preseed.cfg"
 ## Additional packages to install in the node when built
 ##############################################################################
 # packages="maas juju tmux screen atop htop nload"
-packages="linux-crashdump htop nload debconf-utils"
+packages="htop nload debconf-utils"
 
 
 ## Build out the array for virt-install to inject into the kernel load line
