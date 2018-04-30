@@ -1,5 +1,26 @@
 # maas-preseed-autobuilder
 
+Note: You will need to make sure to mount the ISO and copy its contents into
+./remaster/, so the injection of the preseed files into that ISO image can
+succeed. The easiest way to do that is: 
+
+```
+mkdir -p tmp remaster
+sudo mount -oloop ubuntu-18.04-server-amd64.iso tmp
+rsync -avP --partial tmp/. remaster/
+sudo umount tmp
+```
+
+From there, you can then use ./build_maas.sh -r to remaster the CD, which
+will produce a 'custom.iso' file in the current directory, with the preseed
+files injected.
+
+Then just run: 
+
+```./build_maas.sh --iso``` 
+
+This will boot from that ISO image and do the unattended install.
+
 
 ## Syntax
 ```
